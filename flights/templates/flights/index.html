@@ -1,0 +1,16 @@
+{% extends 'flights/layout.html' %}
+
+{% block body %}
+    <ul>
+        {% if flights %}
+            <h1>Flights:</h1>
+            {% for flight in flights %}
+                <a href="{% url 'flights:flight' flight.pk %}">
+                    <li><h3>Flight {{ flight.id }}: {{ flight.origin }} to {{ flight.destination }}</h3></li>
+                </a>
+            {% endfor %}
+        {% else %}
+            No Flights for now!
+        {% endif %}
+    </ul>
+{% endblock %}
